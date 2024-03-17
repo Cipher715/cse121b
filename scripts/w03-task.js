@@ -51,11 +51,17 @@ document.querySelector('#divideNumbers').addEventListener('click', divideNumbers
 
 /* Decision Structure */
 getTotal = () =>{
-    let subtotal = document.querySelector('#subtotal').value;
-    if (document.querySelector('#member').value === "on"){
+    let subtotal = Number(document.querySelector('#subtotal').value);
+    if (document.querySelector('#member').checked === true){
+        console.log("true");
         subtotal = subtotal * 0.8;
-    };
+    }
+    else {
+        console.log("false");
+        subtotal = subtotal;
+    }
     document.querySelector('#total').innerHTML = `$ ${subtotal.toFixed(2)}`;
+
 };
 
 document.querySelector('#getTotal').addEventListener('click', getTotal);
