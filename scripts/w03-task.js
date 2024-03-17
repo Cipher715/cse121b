@@ -52,7 +52,7 @@ document.querySelector('#divideNumbers').addEventListener('click', divideNumbers
 /* Decision Structure */
 getTotal = () =>{
     let subtotal = Number(document.querySelector('#subtotal').value);
-    if (document.querySelector('#member').checked === true){
+    if (document.querySelector('#member').checked){
         subtotal = subtotal * 0.8;
     }
     document.querySelector('#total').innerHTML = `$ ${subtotal.toFixed(2)}`;
