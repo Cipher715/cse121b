@@ -1,5 +1,3 @@
-import _sortBy from 'lodash';
-
 let ingredientList = [];
 let filteredRecipe = [];
 let mealRecipe = [];
@@ -14,7 +12,6 @@ const getIngredients  = async() =>{
         const data = await responce.json();
         ingredientList = data.meals;
     }
-    ingredientList = sortBy(ingredientList, 'strIngredient');
     setList(ingredientList);
 }
 
