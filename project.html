@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE 121b | Final Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <!--
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.searchabledropdown-v1.0.8/jquery.searchabledropdown-1.0.8.src.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+                $("select").searchable();
+        });
+    </script>
+-->
+</head>
+<body>
+    <nav>
+        <ul id="menu">
+          <li><a id="toggleMenu">&equiv;</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="w01-task.html">W1 Task</a></li>
+          <li><a href="w03-task.html">W3 Task</a></li>
+          <li><a href="w04-task.html">W4 Task</a></li>
+          <li><a href="w05-task.html">W5 Task</a></li>
+          <li><a href="project.html" class="active">Project</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>CHOOSE YOUR DINNER!!</h1>
+        <h2>Don't know what to eat? Click "Random" to generate a random meal and its recipe.</h2>
+        <h2>If you don't know what to cook with something in your fridge, <br>
+            select the ingredient from the list. Let's see if we can help you out.</h2>
+    </header>
+
+    <div id = "buttons">
+        <div>
+            <p>Click to see the list of ingredients.</p>
+            <select id= "ingre" title = "Select your ingredient" >
+                <option value="" disabled selected>🔍Select your ingredient</option>
+            </select>
+        </div>
+
+        <button id = "random">Random</button>
+    </div>
+
+    <div id = "recipeMessage"></div>
+    <div id = "recipeList"></div>
+
+    <div id = "recipeDetail"></div>
+
+    
+    <footer>
+        &copy;<span id="year"></span> | Final Project | CSE 121b
+    </footer>
+    <script src="scripts/main.js"></script>
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+      <script src ="scripts/project.js"></script>
+</body>
+</html>
