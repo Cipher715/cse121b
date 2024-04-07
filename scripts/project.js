@@ -6,6 +6,7 @@ const recipeList = document.querySelector('#recipeList');
 const recipeDetail = document.querySelector('#recipeDetail');
 const recipeMessage = document.querySelector('#recipeMessage')
 
+//get the list of ingredient from database. 
 const getIngredients  = async() =>{
     const responce = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?i=list");
     if(responce.ok){
@@ -15,7 +16,7 @@ const getIngredients  = async() =>{
     setList(ingredientList);
 }
 
-
+//create "option" element and append all the elements to "select" tag.
 const setList = list => {
     list.forEach(ingredient => {
         let option = document.createElement('option');
@@ -25,12 +26,14 @@ const setList = list => {
     });
 }
 
+//reset method. Clear all the contents below the buttons.
 const reset = () =>{
     recipeList.innerHTML = "";
     recipeDetail.innerHTML = "";
     recipeMessage.innerHTML = "";
 }
 
+//Upon "select", get a filtered list from database
 const getFilteredList = async() => {
     let ingredient = document.querySelector('#ingre').value;
     const responce = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
@@ -41,6 +44,8 @@ const getFilteredList = async() => {
     displayRecipeList(filteredRecipe);
 }
 
+//display the filtered recipe list. each image is given same class id to act as button.
+//
 const displayRecipeList = list =>{
     reset();
     let message = document.createElement('h3');
@@ -65,6 +70,8 @@ const displayRecipeList = list =>{
 
 }
 
+
+//get a random recipe from database. 
 const getRandom = async() =>{
     const responce = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
     if(responce.ok){
@@ -75,6 +82,7 @@ const getRandom = async() =>{
 
 }
 
+//get details of recipe when a image from the filtered rcipe list is clicked.
 const getRecipe = async(e) => {
     let id = e.target.getAttribute("id");
     const responce = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
@@ -85,6 +93,8 @@ const getRecipe = async(e) => {
     displayRecipe(mealRecipe);
 }
 
+//display details of recipe. 
+//if confition: give a YouTube link of the recipe has one. 
 const displayRecipe = recipeD =>{
     reset();
     let recipe = recipeD[0];
@@ -113,6 +123,7 @@ const displayRecipe = recipeD =>{
     recipeDetail.appendChild(article);
 }
 
+//add event listener to the drop down list, and random button
 document.querySelector("#ingre").addEventListener("change", () => {getFilteredList()});
 document.querySelector('#random').addEventListener('click', () => getRandom());
 
